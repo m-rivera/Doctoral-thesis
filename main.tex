@@ -1,0 +1,416 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Masters/Doctoral Thesis 
+% LaTeX Template
+% Version 2.5 (27/8/17)
+%
+% This template was downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Version 2.x major modifications by:
+% Vel (vel@latextemplates.com)
+%
+% This template is based on a template by:
+% Steve Gunn (http://users.ecs.soton.ac.uk/srg/softwaretools/document/templates/)
+% Sunil Patel (http://www.sunilpatel.co.uk/thesis-template/)
+%
+% Template license:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Plan:
+% - Intro
+% - Electronic structure
+%   - HF
+%   - DFT
+%   - Excited states
+%   - Solid state (PW DFT)
+% - Embedding methods
+%   - Nothing new
+% - Applications
+%   - AIE
+%   - CI
+%   - ESIPT
+%   - Excitons
+% - JCTC result
+% - fromage result
+% - Application results
+% - Conclusion
+
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+11pt, % The default document font size, options: 10pt, 11pt, 12pt
+%oneside, % Two side (alternating margins) for binding by default, uncomment to switch to one side
+english, % ngerman for German
+singlespacing, % Single line spacing, alternatives: onehalfspacing or doublespacing
+%draft, % Uncomment to enable draft mode (no pictures, no links, overfull hboxes indicated)
+%nolistspacing, % If the document is onehalfspacing or doublespacing, uncomment this to set spacing in lists to single
+%liststotoc, % Uncomment to add the list of figures/tables/etc to the table of contents
+%toctotoc, % Uncomment to add the main table of contents to the table of contents
+%parskip, % Uncomment to add space between paragraphs
+%nohyperref, % Uncomment to not load the hyperref package
+headsepline, % Uncomment to get a line under the header
+%chapterinoneline, % Uncomment to place the chapter title next to the number on one line
+%consistentlayout, % Uncomment to change the layout of the declaration, abstract and acknowledgements pages to match the default layout
+]{MastersDoctoralThesis} % The class file specifying the document structure
+
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+\usepackage{caption}% single spacing for captions
+\captionsetup{font={singlespacing,normalsize}}
+\usepackage{mathpazo} % Use the Palatino font by default
+\usepackage{braket} % bra ket notation
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{bm} %for bold maths
+\usepackage{physics}
+\usepackage[numbers,super,comma,sort&compress]{natbib}
+
+
+
+\usepackage[version=3]{mhchem}
+\DeclareUnicodeCharacter{2212}{-}
+
+\usepackage{mathtools}
+\usepackage{commath}
+\usepackage{siunitx}
+%\usepackage[demo]{graphicx}
+\usepackage{graphicx}
+\usepackage{array,booktabs} %tables
+\usepackage{arydshln}
+\usepackage{multirow} % multirows in tables
+\usepackage{float}%Forces figure placement
+\usepackage{siunitx}%Degree symbol
+\usepackage{textcomp} % avoids warnings from gensymb
+\usepackage{gensymb}
+\usepackage{changepage}%center table
+\usepackage{caption}
+\usepackage{dcolumn}%align in table by decimal
+\usepackage{pdfpages}%skill points pdf
+\usepackage{hyperref}
+\usepackage{verbatim}% comment bloacks
+\usepackage{textcomp} %arrow
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\usepackage{notoccite}% don't use table of contents to order citations
+%\usepackage{imakeidx}% index
+\newcommand{\miguel}[1]{\textcolor{black}{#1}}
+\newcommand{\mmiguel}[1]{\textcolor{black}{#1}}
+
+
+
+
+
+
+%\usepackage[numbers,super,comma,sort]{biblatex} % Use the bibtex backend with the authoryear citation style (which resembles APA)
+
+
+\usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
+
+%%MACROS
+
+%Embedded cluster
+\newcommand{\EC}{OEC}
+%Ewald embedded cluster model
+\newcommand{\EEC}{OEEC}
+%Self consistent Ewald embedded cluster model
+\newcommand{\SCEEC}{SC-OEEC}
+%2HC1
+\newcommand{\HC}{\textbf{HC1}}
+%2HC2
+\newcommand{\HCC}{\textbf{HC2}}
+%HPP
+\newcommand{\HPP}{\textbf{HP}}
+
+\DeclareMathOperator\erfc{erfc}
+
+\def\SPSB#1#2{\rlap{\textsuperscript{{#1}}}\SB{#2}}
+\def\SP#1{\textsuperscript{{#1}}}
+\def\SB#1{\textsubscript{{#1}}}
+
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
+
+%----------------------------------------------------------------------------------------
+%	MARGIN SETTINGS
+%----------------------------------------------------------------------------------------
+
+\geometry{
+	paper=a4paper, % Change to letterpaper for US letter
+	inner=2.5cm, % Inner margin
+	outer=3.8cm, % Outer margin
+	bindingoffset=.5cm, % Binding offset
+	top=1.5cm, % Top margin
+	bottom=1.5cm, % Bottom margin
+	%showframe, % Uncomment to show how the type block is set on the page
+}
+
+%----------------------------------------------------------------------------------------
+%	THESIS INFORMATION
+%----------------------------------------------------------------------------------------
+
+\thesistitle{Computational Methods for Photochemistry in Organic Molecular Crystals} % Your thesis title, this is used in the title and abstract, print it elsewhere with \ttitle
+\supervisor{Dr. Rachel \textsc{Crespo-Otero}} % Your supervisor's name, this is used in the title page, print it elsewhere with \supname
+\examiner{} % Your examiner's name, this is not currently used anywhere in the template, print it elsewhere with \examname
+\academicdeg{Doctor of Philosophy} % Your degree name, this is used in the title page and abstract, print it elsewhere with \degreename
+\author{Miguel \textsc{Rivera}} % Your name, this is used in the title page and abstract, print it elsewhere with \authorname
+\addresses{} % Your address, this is not currently used anywhere in the template, print it elsewhere with \addressname
+
+\subject{Biological Sciences} % Your subject area, this is not currently used anywhere in the template, print it elsewhere with \subjectname
+\keywords{} % Keywords for your thesis, this is not currently used anywhere in the template, print it elsewhere with \keywordnames
+\university{Queen Mary University of London} % Your university's name and URL, this is used in the title page and abstract, print it elsewhere with \univname
+\department{Department of Chemistry} % Your department's name and URL, this is used in the title page and abstract, print it elsewhere with \deptname
+\faculty{School of Biological and Chemical Sciences} % Your faculty's name and URL, this is used in the title page and abstract, print it elsewhere with \facname
+
+\AtBeginDocument{
+\hypersetup{pdftitle=\ttitle} % Set the PDF's title to your title
+\hypersetup{pdfauthor=\authorname} % Set the PDF's author to your name
+\hypersetup{pdfkeywords=\keywordnames} % Set the PDF's keywords to your keywords
+}
+
+% line spacing
+\linespread{1.6}
+\begin{document}
+
+\pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{titlepage}
+\begin{center}
+
+\vspace*{.06\textheight}
+{\scshape\LARGE \univname\par}\vspace{1.5cm} % University name
+\textsc{\Large Doctoral Thesis}\\[0.5cm] % Thesis type
+
+\HRule \\[0.4cm] % Horizontal line
+{\huge \bfseries \ttitle\par}\vspace{0.4cm} % Thesis title
+\HRule \\[1.5cm] % Horizontal line
+ 
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Author:}\\
+{\authorname} % Author name - remove the \href bracket to remove the link
+\end{flushleft}
+\end{minipage}
+\begin{minipage}[t]{0.4\textwidth}
+\begin{flushright} \large
+\emph{Supervisor:} \\
+{\supname} % Supervisor name - remove the \href bracket to remove the link  
+\end{flushright}
+\end{minipage}\\[3cm]
+ 
+\vfill
+
+\large \textit{A thesis submitted in fulfilment of the requirements\\ for the degree of \degreename}\\[0.3cm] % University requirement text
+\textit{in the}\\[0.4cm]
+\deptname\\[2cm] % Research group name and department name
+ 
+\vfill
+
+{\large June 3, 2020}\\[4cm] % Date
+%\includegraphics{Logo} % University/department logo - uncomment to place it
+ 
+\vfill
+\end{center}
+\end{titlepage}
+
+%----------------------------------------------------------------------------------------
+%	DECLARATION PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{declaration}
+\addchaptertocentry{\authorshipname} % Add the declaration to the table of contents
+\noindent I, Miguel Rivera, confirm that the research included within this thesis is my own work or that where it has been carried out in collaboration with, or supported by others, that this is duly acknowledged below and my contribution indicated. Previously published material is also acknowledged below.
+
+I attest that I have exercised reasonable care to ensure that the work is original, and does not to the best of my knowledge break any UK law, infringe any third party’s copyright or other Intellectual Property Right, or contain any confidential material.
+
+I accept that the College has the right to use plagiarism detection software to check the electronic version of the thesis.
+
+I confirm that this thesis has not been previously submitted for the award of a degree by this or any other university.
+
+The copyright of this thesis rests with the author and no quotation from it or information derived from it may be published without the prior written consent of the author.
+
+ 
+\noindent Signed: Miguel Rivera\\
+\rule[0.5em]{25em}{0.5pt} % This prints a line for the signature
+ 
+\noindent Date: \today\\
+\rule[0.5em]{25em}{0.5pt} % This prints a line to write the date
+\end{declaration}
+
+\cleardoublepage
+
+%----------------------------------------------------------------------------------------
+%	QUOTATION PAGE
+%----------------------------------------------------------------------------------------
+
+\vspace*{0.2\textheight}
+
+\noindent\enquote{\itshape We were working late on the time machine in the little makeshift lab upstairs. The moon was stuck like the whorl of a frozen fingerprint to the skylight. In the back alley, the breaths left behind by yowling toms converged into a fog slinking out along the streets. Try as we might, our measurements were repeatedly off. In one direction, we'd reached the border at which clairvoyants stand gazing into the future, and in the other we'd gone backward to the zone where the present turns ghostly with memory and yet resists quite becoming the past. We'd been advancing and retreating by smaller and smaller degrees until it had come to seem as if we were measuring the immeasurable. Of course, what we really needed was some new vocabulary of measurement. It was time for a break.}\bigbreak
+
+\hfill Stuart Dybek, \textit{Paper Lantern}
+
+%----------------------------------------------------------------------------------------
+%	ABSTRACT PAGE
+%----------------------------------------------------------------------------------------
+
+\begin{abstract}
+\addchaptertocentry{\abstractname} % Add the abstract to the table of contents
+\setstretch{1.1}
+Organic molecular crystals hold great promise for photochemical applications such as photovoltaics, OLEDs or lasers. Understanding the excited states of these systems is particularly challenging due to the interconnectedness of the excited state character of the molecular wavefunctions and the environmental interactions within the condensed phase. The principal obstacle to this understanding is first and foremost the methodological gap between periodic simulation methods and molecular scale excited state formalisms. Multiscale cluster model methods are a viable extension of the latter, where they promise to recover the crystalline environmental interactions for excited state calculations whilst representing excitations as localised defects rather than periodic delocalised perturbations. This is pertinent to molecular crystals\textemdash{}periodic but non-covalently bonded, displaying quasilocal excitations\textemdash{}however, there is hitherto no software package dedicated their modelling as clusters.
+
+The principal output of this project is the development and application of such a program. This thesis begins with a review of the theoretical background necessary to understand QM:QM' (Quantum Mechanics:Quantum Mechanics') cluster models for excited states, namely quantum electronic structure modelling methods, multiscale embedding methods, and molecular photochemistry. Then, three results chapters are presented, each based on a publication carried out during the project. First, the cluster model method is described, where the electrostatic embedding of the QM region has been extended to model the Madelung potential. Then, the program (\texttt{fromage}, the FRamewOrk for Molecular AGgregate Excitations) which implements this method is presented, along with a suite of analysis tools and command line utilities which enable the reproducible investigation of cluster geometries in molecular crystals. Finally, \texttt{fromage} is used to model an array of luminescent materials and investigate their competing radiative and nonradiative excited state decay pathways.
+\end{abstract}
+
+%----------------------------------------------------------------------------------------
+%	ACKNOWLEDGEMENTS
+%----------------------------------------------------------------------------------------
+
+\begin{acknowledgements}
+\addchaptertocentry{\acknowledgementname} % Add the acknowledgements to the table of contents
+This thesis summarises the work that I carried out between October 2016 and March 2020. Whilst it did cost an undeniably large amount of effort, CPU hours, and keystrokes, it was overall a pleasure and privilege, thanks to the support of a group of outstanding entities which I will proceed to list.
+
+I give my thanks to the members of my panel at QMUL. Isaac Abrahams, for chairing meetings and Devis Di Tommaso for being my second supervisor, always supportive and available to talk about science or careers.
+
+All of the workers of the Joseph Priestley building deserve a mention, for solidarity and good mood. Thank you for Friday drinks at the Senior Common Room on a Friday evening, coffee while waiting for a fire alarm to blow over, or miming conversations through the plexiglass that separates the wet lab and computational office.
+
+Speaking of the latter, the Computational Chemists at QMUL were my closest colleagues for these past years, and I am grateful to all of them for their support. To Anna, Bob, Dimitri, Etienne, Fariha, Filip, Fu, Matteo, and Xiangwen thank you for conversations, lunches, teas, and compassion.
+
+Now I reach the point of my research group, where individual mentions are in order. Scott and Warda stand out as a duo of pre-PhD students who exceeded every expectation but became friends and colleagues, despite my ruining their learning by trying to explain k-space to them. Sorry about that. Ljiljana has been a supportive and compassionate presence ever since she arrived in the UK, and will receive my unreserved thanks just as soon as she watches and returns my DVD of \textit{Ast\'erix et Obélix : Mission Cl\'eop\^atre}. Federico is only a recent addition, but has already proven himself a great deskmate, and a power user of \texttt{fromage}, for which I can only admire his taste. Amir has been an incredibly hard working and fast learning PhD-mate, and it has been a privilege to share some of my new expertise with him. Michael, thank you for providing an example of how to manage science and Rachel, and how to care only the right amount. Your bash-fu is unmatched amongst peers, as can only be evidenced by your program “cdjob”, which literally must have saved me about a day of my life so far in typing. Back of the net!
+
+I would also like to thank the Thomas Young Centre organisers and community, for making me feel a part of a larger group of researchers, and allowing me to share hardships with so many peers. To Bethan, Matthias, Patrick, Sam, and many others, I would like to present my gratitude.
+
+Here seems as good a point as any to thank the communities which made my technical life easy and rewarding during my PhD. The list of useful programs and forums is extensive, so I will only highlight my favourites: vim, Stack Overflow, vmd, Chemcraft, Jmol, Psi4, GNU/Linux, \LaTeX{}, and the Python project.
+
+Now for the extracurricular acknowledgments. I would like to extend my gratitude to my flatmates with whom I shared three-odd years in the Bethnal Green apartment; Dag, Devi, Jolien, and Merry (Emma, Lachlan and Yean get honorable mentions here). Your kindness and caring are only matched by the amount of disassembled mannequin parts scattered around your lair. More specifically, thank you: Dag for warmth, Devi for attentiveness, Jolien for care, and Merry for joy. Let the record show that the final stretch of this thesis is being written on Merry’s antique laptop, which was delivered to me by Yean.
+
+To my comrades in board games, roleplaying games, card games, and any other kind of games, thank you for late nights, laughs, camaraderie, and victories. Of those not yet mentioned, I add Dan, Emrys, Emy, Feargus, Hugo, Jasper, Oli, Ryan, and Sally.
+
+Members of my musical sphere also deserve my gratitude, and I would like to thank for grooves, hummings, and wailings: Ben, Charlie, Harry, Jamie, Max, Mike, The Roundhouse Choir, and The Martinis.
+
+Arthur and Matt must be singled out for being a part of all of the above adventures, and more. Thank you for everything. You know what you did.
+
+I would like to thank Kasia, for her support and presence during some of the hardest parts of this story, as well as all of the other wonderful human beings that she allowed me to meet in Poland and elsewhere.
+
+This thesis is written with calm and joy, thanks in no small part to Lucie, and her innate glow. You are wonderful, caring, and really good at eating apples. Thank you also, and by extension, to the members of the Hiron clan, for their giddiness and blissful chaos. The Grafton Road Noodles, also deserve my warmest thanks, for my countless invasions. Marty, for cool moves, Jay for delight, and \'Elise for peace and for taking Lucie to a Brad Mehldau Concert in March 2019.
+
+To my family in France, Switzerland, Colombia, Canada, Spain, London, and any other number of satellite countries, my absolute thanks. You are a well of warmth, kindness, and practicality, which has served me my whole life, but particularly in the last four years. Thank you to my parents for support, homegrown vegetables, and bash advice, and to my brother Alejandro, for dedication, conversations, and altruism.
+
+There only remains to thank the true mastermind behind this thesis, Rachel. I don’t think I have ever told you this, but when I am asked what my supervisor is like, I usually compare you to Yoda. You are cheerful and aloof, which fools unsuspecting Jedi into underestimating your vastly superior Force power (here, the Force, is excited state Computational Chemistry). With the hindsight of a few years, I can safely assert what I started to suspect only a few months after meeting you: when we disagree, you are usually right, and it’s better to just follow your advice in the first place before opposing any sort of battle (you can show this sentence to future PhD students, just try to hide your smugness). I chose to pursue this project in great part because of your and Michael’s characters, and you have proven that it was one of the best decisions of my life. Your combination of patience, joy, and rigour have brought me comfort and guidance at the worst lows of the project (e.g. after having to repeat months’ worth of calculations because of a typo, or when my personal life got in the way). You have granted me confidence, expertise, and wisdom, and allowed me to preserve my life alongside an ambitious work project. For your support, presence, music recommendations, and pad thais at the Rusty Bike thank you. Anita and David are in good company.
+
+This acknowledgments page is being written at a time of global crisis. In the spirit of camaraderie, and whatever the situation of the reader, I would like to extend my sincere sympathies for the hardships they may be encountering, however large or small, and solidarity in the obstacles to come.
+
+\end{acknowledgements}
+
+%----------------------------------------------------------------------------------------
+%	LIST OF CONTENTS/FIGURES/TABLES PAGES
+%----------------------------------------------------------------------------------------
+
+\tableofcontents % Prints the main table of contents
+
+\listoffigures % Prints the list of figures
+
+\listoftables % Prints the list of tables
+
+%----------------------------------------------------------------------------------------
+%	ABBREVIATIONS
+%----------------------------------------------------------------------------------------
+
+\begin{abbreviations}{ll} % Include a list of abbreviations (a table of two columns)
+
+\textbf{ADC2} & \textbf{A}lgebraic \textbf{D}iagrammatic \textbf{C}onstruction \textbf{2}\\
+\textbf{AIE} & \textbf{A}ggregation \textbf{I}nduced \textbf{E}mission\\
+\textbf{BO} & \textbf{B}orn-\textbf{O}ppenheimer\\
+\textbf{CASPT2} & \textbf{C}omplete \textbf{A}ctive \textbf{S}pace \textbf{P}erturbation \textbf{T}heory \textbf{2}\\
+\textbf{CASSCF} & \textbf{C}omplete \textbf{A}ctive \textbf{S}pace \textbf{S}elf-\textbf{C}onsistent \textbf{F}ield\\
+\textbf{CC} & \textbf{C}oupled \textbf{C}luster\\
+\textbf{CCS} & \textbf{C}oupled \textbf{C}luster \textbf{S}ingles\\
+\textbf{CCSD} & \textbf{C}oupled \textbf{C}luster \textbf{S}ingles and \textbf{D}oubles\\
+\textbf{CGF} & \textbf{C}ontracted \textbf{G}aussian \textbf{F}unction\\
+\textbf{CI} & \textbf{C}onfiguration \textbf{I}nteraction\\
+\textbf{CSF} & \textbf{C}onfiguration \textbf{S}tate \textbf{F}unction\\
+\textbf{CT} & \textbf{C}harge \textbf{T}ransfer\\
+\textbf{DFT} & \textbf{D}ensity \textbf{F}unctional \textbf{T}heory\\
+\textbf{DFTB} & \textbf{D}ensity \textbf{F}unctional \textbf{T}ight-\textbf{B}inding\\
+\textbf{FC} & \textbf{F}rank-\textbf{C}ondon\\
+\textbf{FGR} & \textbf{F}ermi’s \textbf{G}olden \textbf{R}ule\\
+\textbf{fromage} & \textbf{FR}amew\textbf{O}rk for \textbf{M}olecular \textbf{AG}gregate \textbf{E}xcitations\\
+\textbf{GGA} & \textbf{G}eneralised \textbf{G}radient \textbf{A}pproximation\\
+\textbf{GTO} & \textbf{G}aussian \textbf{T}ype \textbf{O}rbital\\
+\textbf{HF} & \textbf{H}artree-\textbf{F}ock\\
+\textbf{IMOMM} & \textbf{I}ntegrated \textbf{M}olecular \textbf{O}rbital \textbf{M}olecular \textbf{M}echanics\\
+\textbf{IMOMO} & \textbf{I}ntegrated \textbf{M}olecular \textbf{O}rbital \textbf{M}olecular \textbf{O}rbital\\
+\textbf{KS} & \textbf{K}ohn-\textbf{S}ham\\
+\textbf{LDA} & \textbf{L}ocal \textbf{D}ensity \textbf{A}pproximation\\
+\textbf{MM} & \textbf{M}olecular \textbf{M}echanics\\
+\textbf{MP2} & \textbf{M}{\o}ller \textbf{P}lesset \textbf{2}\\
+\textbf{MRCI} & \textbf{M}ultireference \textbf{C}onfiguration \textbf{I}nteraction\\
+\textbf{MRSCF} & \textbf{M}ultireference \textbf{S}elf-\textbf{C}onsistent \textbf{F}ield\\
+\textbf{OLED} & \textbf{O}rganic \textbf{L}ight \textbf{E}mitting \textbf{D}iode\\
+\textbf{ONIOM} & \textbf{O}wn \textbf{N}-layered \textbf{I}ntegrated molecular \textbf{O}rbital\\& and molecular \textbf{M}echanics for \textbf{Q}uantum \textbf{M}echanics\\
+\textbf{PBE} & \textbf{P}erdew-\textbf{B}ecke-\textbf{E}rnzerhof\\
+\textbf{PCM} & \textbf{P}olarisable \textbf{C}ontinuum \textbf{M}odel\\
+\textbf{QE} & \textbf{Q}uantum \textbf{E}fficiency\\
+\textbf{QM} & \textbf{Q}uantum \textbf{M}echanics\\
+\textbf{RACI} & \textbf{R}estricted \textbf{A}ccess to \textbf{C}onical \textbf{I}ntersections\\
+\textbf{RIM} & \textbf{R}estriction of \textbf{I}ntramolecular \textbf{M}otions\\
+\textbf{SCF} & \textbf{S}elf-\textbf{C}onsistent \textbf{F}ield\\
+\textbf{SE} & \textbf{S}hr\"{o}dinger \textbf{E}quation\\
+\textbf{SLE} & \textbf{S}olid state \textbf{L}uminescent \textbf{E}nhancement\\
+\textbf{TDDFT} & \textbf{T}ime-\textbf{D}ependent \textbf{D}ensity \textbf{F}unctional \textbf{T}heory\\
+\textbf{TISE} & \textbf{T}ime \textbf{I}ndependent \textbf{S}hr\"{o}dinger \textbf{E}quation\\
+\end{abbreviations}
+
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - CHAPTERS
+%----------------------------------------------------------------------------------------
+
+\pagestyle{thesis} % Return the page headers back to the "thesis" style
+
+% Include the chapters of the thesis as separate files from the Chapters folder
+% Uncomment the lines as you write the chapters
+
+\include{Chapters/1Intro/main}
+\include{Chapters/2Methods/main}
+\include{Chapters/3Embedding/main} 
+\include{Chapters/4Photochem/main}
+\include{Chapters/5Ewald/main}
+\include{Chapters/6Implementation/main}
+\include{Chapters/7Applications/main}
+\include{Chapters/8Conclusions/main}
+%\include{Chapters/Chapter4} 
+%\include{Chapters/Chapter5}
+
+\bibliographystyle{rsc}
+\bibliography{refs}
+
+\appendix
+\include{Appendices/A/main}
+\include{Appendices/B/main}
+
+
+
+
+
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - APPENDICES
+%----------------------------------------------------------------------------------------
+
+
+%\include{Appendices/AppendixB}
+%\include{Appendices/AppendixC}
+
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------
+
+\end{document}  

@@ -1,0 +1,47 @@
+% Chapter 1
+\chapter*{Introduction}% Main chapter title
+\addcontentsline{toc}{chapter}{Introduction}  
+\label{Chapter1} % For referencing the chapter elsewhere, use \ref{Chapter1} 
+
+%----------------------------------------------------------------------------------------
+
+% Define some commands to keep the formatting separated from the content 
+\newcommand{\keyword}[1]{\textbf{#1}}
+\newcommand{\tabhead}[1]{\textbf{#1}}
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\file}[1]{\texttt{\bfseries#1}}
+\newcommand{\option}[1]{\texttt{\itshape#1}}
+
+%----------------------------------------------------------------------------------------
+
+The luminescent response of molecular crystals has found applications in several recent and impactful technologies such as biosensing devices, Organic Light Emitting Diodes (OLEDs), field-effect-transistors, lasers, and photovoltaics.\cite{Li2012,Kwok2015,Huang2013,Zhao2011,Aldred2013,Gierschner2016,Hains2010,Lee2015} However, the theoretical investigation of the photochemistry of solids has not been as reliable an experimental aid as that of liquids or gases, due to the added complexity associated with modelling condensed phases. Indeed the calculation of a molecular excited states is often restricted to the low hundreds of atoms due to its prohibitive computational cost and theoretical inadequacy for extended correlated systems. On the other hand, solids are often defined by their long-range interactions, which can involve moles of collaborating atoms for periodic systems. Molecular condensed phases held together by van der Waals forces occupy a liminal space in this picture, where due to their non-bonded nature, they share properties both of crystals and single molecules, indicating that an overlap in methodologies could be used to investigate their excited states in a robust way.
+
+In recent years, multiscale modelling methods such as "our Own N-layered Integrated molecular Orbital and molecular Mechanics for Quantum Mechanics:Quantum Mechanics'" (ONIOM QM:QM')\cite{Humbel1996,Svensson1996} have proven a useful asset in modelling the excited states of molecular crystals.\cite{Kochman2013,Kochman2013a,Presti2014,Presti2016,Presti2016a,Presti2017,Wilbraham2016a} Cluster model methods represent excitations as defect perturbations rather than fully delocalised phenomena as in full unit-cell periodic excited state calculations. They also limit the amount of molecules to be calculated in the excited state in all cases but the ones with smallest unit cells. Finally, their use of local orbital basis sets avoids the increased computational cost of plane-wave Density Functional Theory (DFT) for highly accurate functionals, which remains a topic of research.\cite{Bowler2012} Hybrid DFT and post-Hartree-Fock methods are therefore available within the cluster model paradigm.
+
+However the conventional ONIOM QM:QM' method presents several weaknesses in modelling the condensed phase:
+\begin{enumerate}
+    \item The system-environment interactions between the excitation and the crystal are truncated to include only the nearest neighbours.
+    \item The electrostatic interactions are modelled as point charge potentials whose charge values are not uniquely defined.
+    \item The response of the environment to the electronic reorganisation of the system is ignored.
+    \item They lack an implementation tailored to excited organic molecular crystals.
+\end{enumerate}
+These shortcomings are elaborated upon in Section \ref{sec:problems}, after presenting the necessary theoretical framework to understand them.
+
+\textbf{The object of this thesis is to offer solutions to the above problems in QM:QM' modelling for excited states in organic molecular crystals, in the form of new modelling methods implemented in a software package, and to apply these methods in order to understand luminescent phenomena in systems previously difficult to model.}
+
+A principal outcome of the doctoral project, along with the publications cited throughout and this thesis, is the program \texttt{fromage}, the FRamewOrk for Molecular AGgregate Excitations. Readers interested in the practical applications of the topics discussed herein can peruse the software project at: \href{https://github.com/Crespo-Otero-group/fromage}{https://github.com/Crespo-Otero-group/fromage}.
+
+The present work is split in two parts. Part I focuses on the required theoretical background to understand the use of cluster models to model photochemistry in molecular crystals. Chapter 1 introduces the quantum mechanical modelling methods which are used throughout, Chapter 2 presents the embedding schemes employed to allow these methods to account for a system's environment, and Chapter 3 introduces foundational topics in photochemistry which will help contextualise what it is that the cluster models are to simulate. Then, Part II presents the results of the thesis. Chapter 4 introduces new ONIOM QM:QM' cluster models tailored to model excited molecular crystals, Chapter 5 describes the program which implements them and other auxiliary tools for analysing these systems, and Chapter 6 investigates of the competing radiative and nonradiative mechanisms of an array of luminescent organic crystals, relying on the new methodological advances.
+
+The following publications constitute the broader output of this doctorate:
+\begin{itemize}
+\linepenalty100
+    \item M. Dommett, M. Rivera and R. Crespo-Otero, How Inter- and Intramolecular Processes Dictate Aggregation-Induced Emission in Crystals Undergoing Excited-State Proton Transfer. \textit{J. Phys. Chem. Lett.}, 2017, \textbf{8} (24), 6148–6153.
+    \item M. Rivera, M. Dommett and R. Crespo-Otero, ONIOM(QM:QM') Electrostatic Embedding Schemes for Photochemistry in Molecular Crystals. \textit{J. Chem. Theory Comput.}, 2019, \textbf{15} (4), 2504–2516. \hbox{}\hfill \textbf{Chapter \ref{chap:jctc}}
+    \item M. Dommett, M. Rivera, M. T. H. Smith and R. Crespo-Otero, Molecular and Crystalline Requirements for Solid State Fluorescence Exploiting Excited State Intramolecular Proton Transfer. \textit{J. Mater. Chem. C}, 2020, \textbf{8} (7), 2558–2568.
+    \item M. Rivera, M. Dommett, A. Sidat, W. Rahim and R. Crespo‐Otero, fromage : A Library for the Study of Molecular Crystal Excited States at the Aggregate Scale. \textit{J. Comput. Chem.}, 2020, \textbf{41} (10), 1045–1058. \hfill \textbf{Chapter \ref{chap:prog}}
+    \item M. Rivera, L. Stojanovi\'c, R. Crespo-Otero, Competition between radiative and nonradiative excited state processes in photoluminescent organic molecular crystals. \textit{in preparation}, 2020. \hfill \textbf{Chapter \ref{chap:molecules}}
+    \item V. Posilgua, D. Pandya, M. Rivera, R. Crespo-Otero, R. Grau-Crespo, Two-dimensional porphyrin-based metal organic frameworks for photocatalytic water splitting: a computational investigation. \textit{in preparation}, 2020.
+\end{itemize}
+
+
